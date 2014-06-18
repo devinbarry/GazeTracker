@@ -5,6 +5,7 @@ original/
 # Ignore visual studio 2012 bin directories
 src/Backup/
 src/Debug/
+src/Release/
 src/*/obj/
 
 # Ignore visual studio files
