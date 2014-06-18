@@ -9,3 +9,7 @@ src/*/obj/
 
 # Ignore visual studio files
 *.v11.suo
+
+# Ignore stupid windows files
+**/Thumbs.db
+
