@@ -132,22 +132,21 @@ namespace GazeTrackerUI
         // Start eye mouse (register listner for gazedata events)
         if (Settings.Instance.Processing.EyeMouseEnabled)
         {
-          if (Settings.Instance.Processing.EyeMouseSmooth)
-            Tracker.Instance.GazeDataSmoothed.GazeDataChanged += mouseDriver.Move;
-          else
-            Tracker.Instance.GazeDataRaw.GazeDataChanged += mouseDriver.Move;
+            if (Settings.Instance.Processing.EyeMouseSmooth)
+                Tracker.Instance.GazeDataSmoothed.GazeDataChanged += mouseDriver.Move;
+            else
+                Tracker.Instance.GazeDataRaw.GazeDataChanged += mouseDriver.Move;
         }
 
         
         //Crosshair region
         if (Settings.Instance.Processing.EyeCrosshairEnabled)
         {
-          crosshairDriver.Show();
-
-          if (Settings.Instance.Processing.EyeMouseSmooth)
-            Tracker.Instance.GazeDataSmoothed.GazeDataChanged += crosshairDriver.Move;
-          else
-            Tracker.Instance.GazeDataRaw.GazeDataChanged += crosshairDriver.Move;
+            crosshairDriver.Show();
+            if (Settings.Instance.Processing.EyeMouseSmooth)
+                Tracker.Instance.GazeDataSmoothed.GazeDataChanged += crosshairDriver.Move;
+            else
+                Tracker.Instance.GazeDataRaw.GazeDataChanged += crosshairDriver.Move;
         }
 
         // Start logging (if enabled)
@@ -158,7 +157,7 @@ namespace GazeTrackerUI
         isRunning = true;
       }
 
-          // Stopping
+      // Stopping
       else
       {
           //Eye mouse region
@@ -175,15 +174,15 @@ namespace GazeTrackerUI
         if (Settings.Instance.Processing.EyeCrosshairEnabled)
         {
             if (Settings.Instance.Processing.EyeMouseSmooth)
-            Tracker.Instance.GazeDataSmoothed.GazeDataChanged -= crosshairDriver.Move;
+                Tracker.Instance.GazeDataSmoothed.GazeDataChanged -= crosshairDriver.Move;
             else
-            Tracker.Instance.GazeDataRaw.GazeDataChanged -= crosshairDriver.Move;
+                Tracker.Instance.GazeDataRaw.GazeDataChanged -= crosshairDriver.Move;
 
             crosshairDriver.Hide();
         }
 
         if (Tracker.Instance.LogData.IsEnabled)
-          Tracker.Instance.LogData.IsEnabled = false; // Will stop and close filestream
+            Tracker.Instance.LogData.IsEnabled = false; // Will stop and close filestream
 
         //Start/Stop button used to change to start here
 
@@ -196,37 +195,36 @@ namespace GazeTrackerUI
 
     private void RegisterEventListners()
     {
-      
-      //Settings region
-      GTCommands.Instance.Settings.OnSettings += OnSettings;
+        //Settings region
+        GTCommands.Instance.Settings.OnSettings += OnSettings;
 
-      //Camera region
-      GTCommands.Instance.Camera.OnCameraChange += OnCameraChanged;
+        //Camera region
+        GTCommands.Instance.Camera.OnCameraChange += OnCameraChanged;
 
-      //TrackerViewer Region
-      GTCommands.Instance.TrackerViewer.OnVideoDetach += OnVideoDetach;
-      GTCommands.Instance.TrackerViewer.OnTrackBoxShow += OnTrackBoxShow;
-      GTCommands.Instance.TrackerViewer.OnTrackBoxHide += OnTrackBoxHide;
+        //TrackerViewer Region
+        GTCommands.Instance.TrackerViewer.OnVideoDetach += OnVideoDetach;
+        GTCommands.Instance.TrackerViewer.OnTrackBoxShow += OnTrackBoxShow;
+        GTCommands.Instance.TrackerViewer.OnTrackBoxHide += OnTrackBoxHide;
 
-      //Calibration region
-      GTCommands.Instance.Calibration.OnAccepted += OnCalibrationAccepted;
-      GTCommands.Instance.Calibration.OnStart += OnCalibrationStart;
-      GTCommands.Instance.Calibration.OnRunning += OnCalibrationRunning;
+        //Calibration region
+        GTCommands.Instance.Calibration.OnAccepted += OnCalibrationAccepted;
+        GTCommands.Instance.Calibration.OnStart += OnCalibrationStart;
+        GTCommands.Instance.Calibration.OnRunning += OnCalibrationRunning;
 
-      GTCommands.Instance.Calibration.OnPointStart += OnPointStart;
-      //GTCommands.Instance.Calibration.OnPointStart += new GTCommons.Events.CalibrationPointEventArgs.CalibrationPointEventHandler(OnPointStart);
-      //GTCommands.Instance.Calibration.OnPointStart += new GazeTrackerUI.Calibration.Events.CalibrationPointEventArgs.CalibrationPointEventHandler(OnPointStart);
+        GTCommands.Instance.Calibration.OnPointStart += OnPointStart;
+        //GTCommands.Instance.Calibration.OnPointStart += new GTCommons.Events.CalibrationPointEventArgs.CalibrationPointEventHandler(OnPointStart);
+        //GTCommands.Instance.Calibration.OnPointStart += new GazeTrackerUI.Calibration.Events.CalibrationPointEventArgs.CalibrationPointEventHandler(OnPointStart);
 
-      GTCommands.Instance.Calibration.OnAbort += OnCalibrationAbort;
-      GTCommands.Instance.Calibration.OnEnd += OnCalibrationEnd;
+        GTCommands.Instance.Calibration.OnAbort += OnCalibrationAbort;
+        GTCommands.Instance.Calibration.OnEnd += OnCalibrationEnd;
 
-      //Misc region
-      GTCommands.Instance.OnNetworkClient += OnNetworkClient;
+        //Misc region
+        GTCommands.Instance.OnNetworkClient += OnNetworkClient;
 
-      //"This window" region
-      Activated += Window1_Activated;
-      Deactivated += Window1_Deactivated;
-      KeyDown += KeyDownAction;
+        //"This window" region
+        Activated += Window1_Activated;
+        Deactivated += Window1_Deactivated;
+        KeyDown += KeyDownAction;
     }
 
     private void ExpanderVisualization_Collapsed(object sender, RoutedEventArgs e)
