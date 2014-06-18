@@ -1,9 +1,15 @@
-﻿using System.Windows;
+﻿using System; //needed for Action
+using System.Windows;
+using System.Windows.Threading; //needed for DispatcherPriority
+
 
 namespace GTCommons.Commands
 {
     public class SettingsCommands : Window
     {
+        //This event added to deal with the removal of the "Settings" button from the UI
+        public static readonly RoutedEvent SettingsButtonEvent = EventManager.RegisterRoutedEvent("SettingsButtonEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(SettingsCommands));
+
         public static readonly RoutedEvent SettingsEvent = EventManager.RegisterRoutedEvent("SettingsEvent",RoutingStrategy.Bubble, typeof (RoutedEventHandler), typeof (SettingsCommands));
         public static readonly RoutedEvent AutotuneSettingsEvent = EventManager.RegisterRoutedEvent("AutotuneSettingsEvent", RoutingStrategy.Bubble, typeof (RoutedEventHandler), typeof (SettingsCommands));
         public static readonly RoutedEvent CameraSettingsEvent = EventManager.RegisterRoutedEvent("CameraSettingsEvent", RoutingStrategy.Bubble, typeof (RoutedEventHandler), typeof (SettingsCommands));
@@ -14,7 +20,22 @@ namespace GTCommons.Commands
         public static readonly RoutedEvent HeadtrackerSettingsEvent = EventManager.RegisterRoutedEvent("HeadtrackerSettingsEvent", RoutingStrategy.Bubble, typeof (RoutedEventHandler), typeof (SettingsCommands));
         public static readonly RoutedEvent EyetrackerSettingsEvent = EventManager.RegisterRoutedEvent("EyetrackerSettingsEvent", RoutingStrategy.Bubble, typeof (RoutedEventHandler), typeof (SettingsCommands));
 
-        #region Public method for executing / rasining events
+        #region Public method for executing / raising events
+
+        public void SettingsButton()
+        {
+            Dispatcher.BeginInvoke
+                (
+                    DispatcherPriority.Normal,
+                    new Action
+                        (
+                        delegate
+                        {
+                            var args1 = new RoutedEventArgs();
+                            args1 = new RoutedEventArgs(SettingsButtonEvent, this);
+                            RaiseEvent(args1);
+                        }));
+        }
 
         public void Settings()
         {
@@ -61,6 +82,12 @@ namespace GTCommons.Commands
         #endregion
 
         #region RoutedEventsHandlers
+
+        public event RoutedEventHandler OnSettingsButton
+        {
+            add { base.AddHandler(SettingsButtonEvent, value); }
+            remove { base.RemoveHandler(SettingsButtonEvent, value); }
+        }
 
         public event RoutedEventHandler OnSettings
         {
