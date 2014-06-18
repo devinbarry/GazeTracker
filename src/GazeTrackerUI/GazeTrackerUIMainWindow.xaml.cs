@@ -68,6 +68,7 @@ namespace GazeTrackerUI
 
     }
 
+    //Event Handler that runs when the Windows ContentRendered event occurs
     private void GazeTrackerUIMainWindow_ContentRendered(object sender, EventArgs e)
     {
       // Load GTSettings
@@ -196,6 +197,7 @@ namespace GazeTrackerUI
     private void RegisterEventListners()
     {
         //Settings region
+        GTCommands.Instance.Settings.OnSettingsButton += ShowSetupWindow; //Added to deal with loss of the 'Settings' button
         GTCommands.Instance.Settings.OnSettings += OnSettings;
 
         //Camera region
@@ -207,6 +209,7 @@ namespace GazeTrackerUI
         GTCommands.Instance.TrackerViewer.OnTrackBoxHide += OnTrackBoxHide;
 
         //Calibration region
+        GTCommands.Instance.Calibration.OnCalibrationButton += Calibrate; //Added to deal with loss of the 'Calibrate' button
         GTCommands.Instance.Calibration.OnAccepted += OnCalibrationAccepted;
         GTCommands.Instance.Calibration.OnStart += OnCalibrationStart;
         GTCommands.Instance.Calibration.OnRunning += OnCalibrationRunning;
