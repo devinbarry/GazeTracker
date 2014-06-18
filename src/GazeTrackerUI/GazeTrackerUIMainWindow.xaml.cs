@@ -222,7 +222,8 @@ namespace GazeTrackerUI
         GTCommands.Instance.Calibration.OnEnd += OnCalibrationEnd;
 
         //Misc region
-        GTCommands.Instance.OnNetworkClient += OnNetworkClient;
+        //Devin removes this because we dont want a network client
+        //GTCommands.Instance.OnNetworkClient += OnNetworkClient;
 
         //"This window" region
         Activated += Window1_Activated;
