@@ -25,8 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTCommunication", "GTCommun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTSettings", "GTSettings\GTSettings.csproj", "{64C7D526-F5AE-4B60-87AB-5AD67104C581}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GTSetupMergeModule", "GTSetupMergeModule\GTSetupMergeModule.vdproj", "{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -176,16 +174,6 @@ Global
 		{64C7D526-F5AE-4B60-87AB-5AD67104C581}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{64C7D526-F5AE-4B60-87AB-5AD67104C581}.Release|x86.ActiveCfg = Release|x86
 		{64C7D526-F5AE-4B60-87AB-5AD67104C581}.Release|x86.Build.0 = Release|x86
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Debug|Any CPU.ActiveCfg = Debug
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Debug|Any CPU.Build.0 = Debug
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Debug|Mixed Platforms.Build.0 = Debug
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Debug|x86.ActiveCfg = Debug
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Release|Any CPU.ActiveCfg = Release
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Release|Any CPU.Build.0 = Release
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Release|Mixed Platforms.ActiveCfg = Release
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Release|Mixed Platforms.Build.0 = Release
-		{B6462BA1-FCE5-4D42-906F-45377AAD9E2F}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
