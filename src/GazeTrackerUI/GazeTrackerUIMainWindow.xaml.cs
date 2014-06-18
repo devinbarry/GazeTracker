@@ -224,8 +224,6 @@ namespace GazeTrackerUI
       GTCommands.Instance.OnNetworkClient += OnNetworkClient;
 
       //"This window" region
-      ExpanderVisualization.Expanded += new RoutedEventHandler(ExpanderVisualization_Expanded);
-      ExpanderVisualization.Collapsed += new RoutedEventHandler(ExpanderVisualization_Collapsed);
       Activated += Window1_Activated;
       Deactivated += Window1_Deactivated;
       KeyDown += KeyDownAction;
