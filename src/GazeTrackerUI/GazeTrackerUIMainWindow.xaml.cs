@@ -38,33 +38,20 @@ using Settings = GTSettings.Settings;
 
 namespace GazeTrackerUI
 {
-
-  #region Includes
-
   // System classes
 
   // GazeTracker classes
 
   //using GazeTrackingLibrary.Illumination;
 
-  #endregion
-
-
   public partial class GazeTrackerUIMainWindow
   {
-
-    #region Variables
-
     private readonly CrosshairDriver crosshairDriver = new CrosshairDriver();
     private readonly MouseDriver mouseDriver = new MouseDriver();
     private readonly TCPIPServer tcpipServer = new TCPIPServer();
     private Process clientUIProc;
     private bool isRunning;
     private MessageWindow msgWindow;
-    // private Tracker tracker;
-
-    #endregion
-
 
     #region Constructor / Init methods
 
