@@ -10,6 +10,12 @@ namespace GTCommons.Commands
     {
         #region RoutedEventHandlers
 
+        public event RoutedEventHandler OnCalibrationButton
+        {
+            add { base.AddHandler(CalibrationButtonEvent, value); }
+            remove { base.RemoveHandler(CalibrationButtonEvent, value); }
+        }
+
         public event RoutedEventHandler OnStart
         {
             add { base.AddHandler(StartEvent, value); }
@@ -67,6 +73,21 @@ namespace GTCommons.Commands
         #endregion
 
         #region Public methods
+
+        public void CalibrationButton()
+        {
+            Dispatcher.BeginInvoke
+                (
+                    DispatcherPriority.Normal,
+                    new Action
+                        (
+                        delegate
+                        {
+                            var args1 = new RoutedEventArgs();
+                            args1 = new RoutedEventArgs(CalibrationButtonEvent, this);
+                            RaiseEvent(args1);
+                        }));
+        }
 
         public void Start()
         {
@@ -169,6 +190,9 @@ namespace GTCommons.Commands
         }
 
         #endregion
+
+        //This event added to deal with the removal of the "Calibration" button from the UI
+        public static readonly RoutedEvent CalibrationButtonEvent = EventManager.RegisterRoutedEvent("CalibrationButtonEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(CalibrationCommands));
 
         public static readonly RoutedEvent StartEvent = EventManager.RegisterRoutedEvent("StartEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(CalibrationCommands));
         public static readonly RoutedEvent RunningEvent = EventManager.RegisterRoutedEvent("RunningEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(CalibrationCommands));
