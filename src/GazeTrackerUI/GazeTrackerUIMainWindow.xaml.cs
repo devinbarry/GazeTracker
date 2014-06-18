@@ -196,28 +196,19 @@ namespace GazeTrackerUI
 
     private void RegisterEventListners()
     {
-      #region Settings
-
+      
+      //Settings region
       GTCommands.Instance.Settings.OnSettings += OnSettings;
 
-      #endregion
-
-      #region Camera
-
+      //Camera region
       GTCommands.Instance.Camera.OnCameraChange += OnCameraChanged;
 
-      #endregion
-
-      #region TrackerViewer
-
+      //TrackerViewer Region
       GTCommands.Instance.TrackerViewer.OnVideoDetach += OnVideoDetach;
       GTCommands.Instance.TrackerViewer.OnTrackBoxShow += OnTrackBoxShow;
       GTCommands.Instance.TrackerViewer.OnTrackBoxHide += OnTrackBoxHide;
 
-      #endregion
-
-      #region Calibration
-
+      //Calibration region
       GTCommands.Instance.Calibration.OnAccepted += OnCalibrationAccepted;
       GTCommands.Instance.Calibration.OnStart += OnCalibrationStart;
       GTCommands.Instance.Calibration.OnRunning += OnCalibrationRunning;
@@ -229,24 +220,15 @@ namespace GazeTrackerUI
       GTCommands.Instance.Calibration.OnAbort += OnCalibrationAbort;
       GTCommands.Instance.Calibration.OnEnd += OnCalibrationEnd;
 
-      #endregion
-
-      #region Misc
-
+      //Misc region
       GTCommands.Instance.OnNetworkClient += OnNetworkClient;
 
-      #endregion
-
-      #region This window
-
+      //"This window" region
       ExpanderVisualization.Expanded += new RoutedEventHandler(ExpanderVisualization_Expanded);
       ExpanderVisualization.Collapsed += new RoutedEventHandler(ExpanderVisualization_Collapsed);
       Activated += Window1_Activated;
       Deactivated += Window1_Deactivated;
-
       KeyDown += KeyDownAction;
-
-      #endregion
     }
 
     private void ExpanderVisualization_Collapsed(object sender, RoutedEventArgs e)
