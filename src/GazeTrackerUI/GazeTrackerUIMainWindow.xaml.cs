@@ -137,8 +137,7 @@ namespace GazeTrackerUI
       // Starting
       if (!isRunning)
       {
-        #region EyeMouse
-
+        //Eye mouse region
         // Start eye mouse (register listner for gazedata events)
         if (Settings.Instance.Processing.EyeMouseEnabled)
         {
@@ -148,10 +147,8 @@ namespace GazeTrackerUI
             Tracker.Instance.GazeDataRaw.GazeDataChanged += mouseDriver.Move;
         }
 
-        #endregion
-
-        #region Crosshair
-
+        
+        //Crosshair region
         if (Settings.Instance.Processing.EyeCrosshairEnabled)
         {
           crosshairDriver.Show();
@@ -162,17 +159,12 @@ namespace GazeTrackerUI
             Tracker.Instance.GazeDataRaw.GazeDataChanged += crosshairDriver.Move;
         }
 
-        #endregion
-
-        #region TCPIP Server
-
+        //TCPIP Server Region
         // Start UDP data server (if enabled)
         Tracker.Instance.Server.IsEnabled = GTSettings.Settings.Instance.Network.UDPServerEnabled;
 
         // Start logging (if enabled)
         Tracker.Instance.LogData.IsEnabled = GTSettings.Settings.Instance.FileSettings.LoggingEnabled;
-
-        #endregion
 
         BtnStartStop.Label = "Stop";
 
@@ -186,43 +178,34 @@ namespace GazeTrackerUI
           // Stopping
       else
       {
-        #region EyeMouse
+          //Eye mouse region
+          // Stop eye mouse (unregister events)
+          if (Settings.Instance.Processing.EyeMouseEnabled)
+          {
+              if (Settings.Instance.Processing.EyeMouseSmooth)
+                  Tracker.Instance.GazeDataSmoothed.GazeDataChanged -= mouseDriver.Move;
+              else
+                  Tracker.Instance.GazeDataRaw.GazeDataChanged -= mouseDriver.Move;
+          }
 
-        // Stop eye mouse (unregister events)
-        if (Settings.Instance.Processing.EyeMouseEnabled)
-        {
-          if (Settings.Instance.Processing.EyeMouseSmooth)
-            Tracker.Instance.GazeDataSmoothed.GazeDataChanged -= mouseDriver.Move;
-          else
-            Tracker.Instance.GazeDataRaw.GazeDataChanged -= mouseDriver.Move;
-        }
-
-        #endregion
-
-        #region Crosshair
-
+        //Crosshair region
         if (Settings.Instance.Processing.EyeCrosshairEnabled)
         {
-          if (Settings.Instance.Processing.EyeMouseSmooth)
+            if (Settings.Instance.Processing.EyeMouseSmooth)
             Tracker.Instance.GazeDataSmoothed.GazeDataChanged -= crosshairDriver.Move;
-          else
+            else
             Tracker.Instance.GazeDataRaw.GazeDataChanged -= crosshairDriver.Move;
 
-          crosshairDriver.Hide();
+            crosshairDriver.Hide();
         }
 
-        #endregion
-
-        #region TCPIP Server
-
+        //TCP/IP Server region
         // Stop UDP data server (if enabled)
         if (Tracker.Instance.Server.IsEnabled)
           Tracker.Instance.Server.IsEnabled = false;
 
         if (Tracker.Instance.LogData.IsEnabled)
           Tracker.Instance.LogData.IsEnabled = false; // Will stop and close filestream
-
-        #endregion
 
         BtnStartStop.Label = "Start";
 
