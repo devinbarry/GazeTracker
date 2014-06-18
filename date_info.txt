@@ -1,0 +1,3 @@
+18/06/2014
+The binary was downloaded from sourceforge and put in the bin subdirectory
+The code was downloaded as a snapshot original/gazetrackinglib-code-564-trunk.zip and was extracted into the src subdirectory
