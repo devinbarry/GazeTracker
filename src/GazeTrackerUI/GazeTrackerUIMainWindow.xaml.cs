@@ -105,8 +105,6 @@ namespace GazeTrackerUI
       // Events
       RegisterEventListners();
 
-      menuBarIcons.IsSettingsVisible = false;
-
       // Show window
       Show();
 
