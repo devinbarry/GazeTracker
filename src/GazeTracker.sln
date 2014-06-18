@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GazeTrackerUI", "GazeTrackerUI\GazeTrackerUI.csproj", "{41CE4BE5-AB35-45ED-945F-DE384454215C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GazeTrackingLibrary", "GazeTrackingLibrary\GazeTrackingLibrary.csproj", "{BF8D4E7F-F8E1-4204-B438-55B35233F590}"
