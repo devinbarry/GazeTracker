@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Comment CommentText="An IMediaSequence is a set of frames. For example, a video clip would be at this level. A single frame (i.e. a plain image) is a SingleFrameMediaSequence, being a sequence of 1 frame only.">
+    <Position X="7.212" Y="0.5" Height="1.121" Width="2.299" />
+  </Comment>
+  <Comment CommentText="An IMediaFrame is a single image file, potentially with a corresponding enumerable collection of LabelledFeature objects. If the MediaSequence contains a video, then each MediaFrame is one frame in the video.">
+    <Position X="9.751" Y="0.522" Height="1.121" Width="2.299" />
+  </Comment>
+  <Comment CommentText="A LabelledFeature is a single item (e.g. left eye centre), along with one or more points to define the feature. These points are stored in the IPath">
+    <Position X="12.229" Y="0.533" Height="1.121" Width="2.299" />
+  </Comment>
+  <Comment CommentText="An IPath contains one or more points to define the feature. The path may either be open (e.g. eyebrow line) or closed (e.g. eye bounding region box)">
+    <Position X="14.755" Y="0.536" Height="1.121" Width="2.299" />
+  </Comment>
+  <Comment CommentText="An IMediaSequences is a set of MediaSequences. It allows for combination through the use of the AppendedMediaSequqnces to combine multiple data sets together whilst retaining the object structure, and abstracting the data set specific implementation away from the user.">
+    <Position X="1.377" Y="0.5" Height="1.121" Width="4.048" />
+  </Comment>
+  <Comment CommentText="IMediaSequences - Enumerable collection of videos and/or still images. This equates to a &quot;face database&quot; from one of the many sources. Also I have a data set appender, which takes multiple MediaSequences and concatenates them so you can iterate over many different face databases as a single IMediaSequences.&#xD;&#xA;&#xD;&#xA;IMediaSequence - A sequence of IMediaFrame objects (so a video based IMediaSequence would have many MediaFrames, a still image IMediaSequence would have one IMediaFrame)&#xD;&#xA;&#xD;&#xA;IMediaFrame - A single still image, with an optional associated set of one or more labelled features. An IMediaFrame may not have any ground truths, which means it may or may nt be usable for certain types of tests (unit tests need to check desired ground truths exist before considering the specific MediaFrame)&#xD;&#xA;&#xD;&#xA;ILabelledFeature - A &quot;ground truth&quot;, e.g. eye centre, eye region, mouth outline, etc. Consists of the type of labelled feature along with an IPath of point(s).&#xD;&#xA;&#xD;&#xA;IPath - The outline or point of the ground truth ILabelledFeature. Can be closed if it's a region (e.g. eye region) or could also be a non-closed path of points (e.g. eyebrow line)">
+    <Position X="5.302" Y="9.532" Height="2.631" Width="7.498" />
+  </Comment>
+  <Class Name="UnitTests.DataSetMediaApi.SinglePointPath">
+    <Position X="14.75" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaImpl\SinglePointPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitTests.DataSetMediaApi.MultiPointPath">
+    <Position X="14.75" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAKAAAQAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>DataSetMediaImpl\MultiPointPath.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitTests.DataSetMediaApi.MediaSequence">
+    <Position X="7.25" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAEgAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaImpl\MediaSequence.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitTests.DataSetMediaApi.SingleFrameMediaSequence">
+    <Position X="7.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaImpl\SingleFrameMediaSequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitTests.DataSetMediaApi.AppendedMediaSequences">
+    <Position X="1" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>DataSetMediaImpl\AppendedMediaSequences.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitTests.DataSetMediaImpl.LazyLoadImageMediaFrame">
+    <Position X="9.75" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAABAAKAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaImpl\LazyLoadImageMediaFrame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitTests.DataSetMediaImpl.LabelledFeature">
+    <Position X="12.25" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAACAAAAAAAAKAIAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>DataSetMediaImpl\LabelledFeature.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitTests.DataSetMediaImpl.BaseMediaFrame">
+    <Position X="9.75" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAABgAKAAAAAABAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaImpl\BaseMediaFrame.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitTests.DataSets.PolyuNirFaceDataSet" Collapsed="true">
+    <Position X="2.5" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAACKAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>DataSets\PolyuNirFaceDataSet\PolyuNirFaceDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitTests.PrivateDataSet" Collapsed="true">
+    <Position X="3.5" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAFAAAAKAAAAAAECAAAAAAkAAAAAAI=</HashCode>
+      <FileName>DataSets\PrivateDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitTests.TestDataSet" Collapsed="true">
+    <Position X="3.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAKAAAAAAAQAAAAQAgAAAAAAA=</HashCode>
+      <FileName>DataSets\TestDataSet.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitTests.DataSets.PutFaceDatabaseDataSet" Collapsed="true">
+    <Position X="4.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAgAAAgAIkgEAEACKAAAQAAAIEAAAIAgAAABIAA=</HashCode>
+      <FileName>DataSets\PutFaceDatabaseDataSet\PutFaceDatabaseDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="UnitTests.DataSetMediaApi.IMediaSequences">
+    <Position X="1" Y="2" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>DataSetMediaApi\IMediaSequences.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UnitTests.DataSetMediaApi.IMediaSequence">
+    <Position X="7.25" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaApi\IMediaSequence.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UnitTests.DataSetMediaApi.IMediaFrame">
+    <Position X="9.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAABAAAAAAAAABAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaApi\IMediaFrame.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UnitTests.DataSetMediaApi.ILabelledFeature">
+    <Position X="12.25" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSetMediaApi\ILabelledFeature.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UnitTests.DataSetMediaApi.IPath">
+    <Position X="14.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>DataSetMediaApi\IPath.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

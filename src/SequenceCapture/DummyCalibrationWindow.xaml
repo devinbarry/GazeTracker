@@ -1,0 +1,12 @@
+﻿<Window x:Class="SequenceCapture.DummyCalibrationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CalibrationUI="clr-namespace:GazeTrackerUI.CalibrationUI;assembly=GazeTrackerUI" 
+    Title="CalibrationWindow" Height="300" Width="300"
+	Background="Black" ResizeMode="NoResize" Topmost="False">
+        
+	<Canvas x:Name="CanvasRoot" Background="Black" AllowDrop="True">
+		<CalibrationUI:CalibrationControl x:Name="calibrationControl"/>
+	</Canvas>
+	
+</Window>

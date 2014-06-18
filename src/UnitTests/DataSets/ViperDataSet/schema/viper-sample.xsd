@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="viper" targetNamespace="http://lamp.cfar.umd.edu/viper#" xmlns:mstns="http://lamp.cfar.umd.edu/viper#" xmlns="http://lamp.cfar.umd.edu/viper#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified" xmlns:app1="http://lamp.cfar.umd.edu/viperdata#">
+  <xs:import namespace="http://lamp.cfar.umd.edu/viperdata#" schemaLocation="viper-sample_app1.xsd" />
+  <xs:element name="attribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="app1:lvalue-possibles" />
+        <xs:element ref="app1:fvalue" />
+        <xs:element ref="app1:dvalue" />
+        <xs:element ref="app1:circle" />
+        <xs:element ref="app1:point" />
+      </xs:sequence>
+      <xs:attribute name="dynamic" form="unqualified" type="xs:string" />
+      <xs:attribute name="name" form="unqualified" type="xs:string" />
+      <xs:attribute name="type" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="viper" msdata:IsDataSet="true" msdata:Locale="en-US">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute" />
+        <xs:element name="config">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="descriptor" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="attribute" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                  <xs:attribute name="name" form="unqualified" type="xs:string" />
+                  <xs:attribute name="type" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sourcefile" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="file" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="attribute" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                        <xs:attribute name="id" form="unqualified" type="xs:string" />
+                        <xs:attribute name="name" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="object" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="attribute" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                        <xs:attribute name="framespan" form="unqualified" type="xs:string" />
+                        <xs:attribute name="id" form="unqualified" type="xs:string" />
+                        <xs:attribute name="name" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="filename" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

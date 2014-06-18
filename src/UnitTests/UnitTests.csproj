@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F967EE7-37EC-4F4E-A332-25F3DC19CA29}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitTests</RootNamespace>
+    <AssemblyName>UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV, Version=2.1.0.793, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\Managed\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=2.1.0.793, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\Managed\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util, Version=2.1.0.793, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\Managed\Emgu.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="fastJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\Managed\fastJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\Managed\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\NUnit-2.5.10.11092\bin\net-2.0\framework\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSetMediaApi\IMediaSequences.cs" />
+    <Compile Include="DataSetMediaApi\IPath.cs" />
+    <Compile Include="DataSetMediaImpl\BaseMediaFrame.cs" />
+    <Compile Include="DataSetMediaImpl\AppendedMediaSequences.cs" />
+    <Compile Include="DataSetMediaImpl\SingleFrameMediaSequence.cs" />
+    <Compile Include="DataSetMediaImpl\SinglePointPath.cs" />
+    <Compile Include="DataSetMediaImpl\MediaSequence.cs" />
+    <Compile Include="DataSetMediaImpl\MultiPointPath.cs" />
+    <Compile Include="DataSetMediaImpl\LabelledFeature.cs" />
+    <Compile Include="DataSetMediaImpl\LazyLoadImageMediaFrame.cs" />
+    <Compile Include="DataSetMediaApi\DataSetEnums.cs" />
+    <Compile Include="DataSetMediaApi\IMediaFrame.cs" />
+    <Compile Include="DataSetMediaApi\IMediaSequence.cs" />
+    <Compile Include="DataSets\CasiaIrisDistanceDataSet\CasiaIrisDistanceDataSet.cs" />
+    <Compile Include="DataSets\TestDataSet.cs" />
+    <Compile Include="DataSets\PolyuNirFaceDataSet\PolyuNirFaceDataSet.cs" />
+    <Compile Include="DataSetMediaApi\ILabelledFeature.cs" />
+    <Compile Include="DataSets\PutFaceDatabaseDataSet\PutFaceDatabaseDataSet.cs" />
+    <Compile Include="DataSets\ViperDataSet\schema\viper-sample.cs" />
+    <Compile Include="DataSets\ViperDataSet\schema\viper-schema.designer.cs" />
+    <Compile Include="DataSets\ViperDataSet\ViperDataSet.cs" />
+    <Compile Include="GazeTrackingLibrary\Detection\EyeDetectorTest.cs" />
+    <Compile Include="GazeTrackingLibrary\Utils\OperationsTest.cs" />
+    <Compile Include="GTCommunication\JSON\JsonTest.cs" />
+    <Compile Include="GTCommunication\Xml\XmlStructureTest.cs" />
+    <Compile Include="GTCommunication\Yaml\YamlTest.cs" />
+    <Compile Include="GTHardware\Cameras\FileStream\OpenCvExperimentTest.cs" />
+    <Compile Include="GTHardware\Cameras\FileStream\FileStreamCameraTest.cs" />
+    <Compile Include="DataSets\PrivateDataSet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestEnums.cs" />
+    <Compile Include="UnitTestSettings.cs" />
+    <Compile Include="VisualApi\IVisualDisplay.cs" />
+    <Compile Include="VisualImpl\FileSystemVisualStore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GazeTrackingLibrary\GazeTrackingLibrary.csproj">
+      <Project>{BF8D4E7F-F8E1-4204-B438-55B35233F590}</Project>
+      <Name>GazeTrackingLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTCommons\GTCommons.csproj">
+      <Project>{02E8476C-305D-4FAD-83BC-3A70CCA37260}</Project>
+      <Name>GTCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTCommunication\GTCommunication.csproj">
+      <Project>{5D93590F-6E2D-411D-8DD8-43946F86A9A7}</Project>
+      <Name>GTCommunication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTHardware\GTHardware.csproj">
+      <Project>{4EF59290-9005-460E-8919-5003414BDC92}</Project>
+      <Name>GTHardware</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTSettings\GTSettings.csproj">
+      <Project>{64C7D526-F5AE-4B60-87AB-5AD67104C581}</Project>
+      <Name>GTSettings</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataSetMediaClassDiagram.cd" />
+    <None Include="DataSets\ViperDataSet\schema\convert-xsd-to-cs.bat" />
+    <None Include="DataSets\ViperDataSet\schema\viper-schema.xsd" />
+    <None Include="GazeTrackerNUnitTestProject.nunit" />
+    <None Include="TestResources\Viper\casia-iris-distance-landmarks.xgtf" />
+    <None Include="TestResources\Viper\test08-move-head-no-glasses.xgtf" />
+    <Content Include="DataSets\ViperDataSet\schema\viper-sample.xml" />
+    <Content Include="TestResources\Yaml\landmark-1.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Yaml\regions-1.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Yaml\regions2-1.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Yaml\test.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

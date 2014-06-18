@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	    targetNamespace="http://lamp.cfar.umd.edu/viper"
+	    xmlns:viperdata="http://lamp.cfar.umd.edu/viperdata"
+	    xmlns:viper="http://lamp.cfar.umd.edu/viper"
+	    elementFormDefault="qualified">
+
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        This is the schema for ViPER XML format.
+        It is currently at the prototype stage.
+        See also viperdata.xsd.
+        </xsd:documentation>
+    </xsd:annotation>
+
+
+    <xsd:element name="viper" type="viper:viper"/>
+
+	<!-- 
+  - This is the root element. It divides into two pieces,
+  - <config> and <data>. The <config> section details the 
+  - presence of descriptors to be found in the data section.
+  - It also contains the <sequences> element, which specifies
+  - aliases for source media file names, and allows multiple
+  - files to be treated as a single file.
+  -->
+
+    <xsd:complexType name="viper">
+        <xsd:sequence>
+            <xsd:element name="config" type="viper:configType"/>
+            <xsd:element name="sequences" type="viper:mediaSequenceListingType"  minOccurs="0"/>
+            <xsd:element name="data" type="viper:dataType" minOccurs="0"/>
+		<!-- There might not be a data section at first. -->
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="configType">
+        <xsd:sequence>
+            <xsd:element name="descriptor" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="attribute" maxOccurs="unbounded"
+                                     minOccurs="0"
+                                     type="viper:attributePrototype"/>
+                    </xsd:sequence>
+                    <xsd:attribute name="name" type="xsd:Name"/>
+                    <xsd:attribute name="type" type="viper:descriptorCategory"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="dataType">
+        <xsd:sequence>
+	        <xsd:element name="sourcefile" minOccurs="0" maxOccurs="unbounded"
+	                     type="viper:sourcefileType">
+	            <xsd:unique name="descriptorUniqueConstraint">
+	                <xsd:selector xpath="*"/>
+	                <xsd:field xpath="@id"/>
+	            </xsd:unique>
+	        </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="mediaSequenceListingType">
+        <xsd:sequence>
+	        <xsd:element name="sequence" minOccurs="1" maxOccurs="unbounded"
+    	                     type="viper:mediaSequenceType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="mediaSequenceType">
+        <xsd:sequence>
+            <xsd:element name="clip" minOccurs="1" maxOccurs="unbounded"
+                         type="viper:mediaAtomType"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:Name" />
+    </xsd:complexType>
+    <xsd:complexType name="mediaAtomType">
+        <xsd:attribute name="href" type="xsd:anyURI" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="sourcefileType">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="file" minOccurs="0" maxOccurs="1" 
+                         type="viper:descriptorType"/>
+            <xsd:element name="content" minOccurs="0" maxOccurs="unbounded"
+                         type="viper:descriptorType"/>
+            <xsd:element name="object" minOccurs="0" maxOccurs="unbounded"
+                         type="viper:descriptorType"/>
+        </xsd:choice>
+        <xsd:attribute name="filename" type="xsd:anyURI" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="attributePrototype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                In order to allow extended types,
+                such as lvalues, you may extend the
+                data with more information.
+            </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:sequence>
+            <xsd:element name="default" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="viper:null" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+          <!-- 
+            <xsd:any minOccurs="0" maxOccurs="unbounded"/>
+          -->
+        </xsd:sequence>
+      
+        <xsd:attribute name="name" type="xsd:Name"/>
+        <xsd:attribute name="type" type="xsd:Name"/>
+        <xsd:attribute name="dynamic" type="xsd:boolean"/>
+        <xsd:anyAttribute namespace="##any" />
+    </xsd:complexType>
+
+    <xsd:complexType name="descriptorType">
+        <xsd:sequence>
+            <xsd:element name="attribute" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="viper:null" minOccurs="0"
+                                     maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                    <xsd:attribute name="name" type="xsd:Name"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:Name"/>
+        <xsd:attribute name="id" type="xsd:nonNegativeInteger"/>
+        <xsd:attribute name="framespan" type="viper:framespanType" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="descriptorAttributeData" abstract="true">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                All attribute data types should extend this one.
+                There is probably a way to get this enforced, but
+                it is a bit of a bother.
+            </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:attribute name="span" type="xsd:positiveInteger" use="optional"/>
+        <xsd:attribute name="framespan" type="viper:framespanType" use="optional"/>
+        <xsd:attribute name="timespan" type="viper:framespanType" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:element name="null" type="viper:descriptorAttributeData"/>
+
+    <xsd:simpleType name="descriptorCategory">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="FILE"/>
+            <xsd:enumeration value="CATEGORY"/>
+            <xsd:enumeration value="OBJECT"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="framespanType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d+:\d+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+	
+	<!-- This is where the viperdata.xsd started -->
+
+  <!--
+    <xsd:element name="null" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+  -->
+  
+    <xsd:element name="bbox" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="x" type="xsd:integer"/>
+                    <xsd:attribute name="y" type="xsd:integer"/>
+                    <xsd:attribute name="width" type="xsd:integer"/>
+                    <xsd:attribute name="height" type="xsd:integer"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="obox" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="x" type="xsd:integer"/>
+                    <xsd:attribute name="y" type="xsd:integer"/>
+                    <xsd:attribute name="width" type="xsd:integer"/>
+                    <xsd:attribute name="height" type="xsd:integer"/>
+                    <xsd:attribute name="rotation" type="xsd:integer"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="svalue" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="value" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="lvalue" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="value" type="xsd:Name"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="lvalue-possibles">
+        <xsd:complexType>
+            <xsd:sequence>
+		<xsd:element name="lvalue-enum" minOccurs="1" maxOccurs="unbounded">
+		    <xsd:complexType>
+			<xsd:attribute name="value" type="xsd:Name"/>
+		    </xsd:complexType>
+		</xsd:element>
+	    </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="relation" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="value">
+			<xsd:simpleType>
+			    <xsd:list itemType="xsd:nonNegativeInteger"/>
+			</xsd:simpleType>
+		    </xsd:attribute>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="relation-reference" type="xsd:Name"/>
+
+    <xsd:element name="dvalue" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="value" type="xsd:integer"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="fvalue" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="value" type="xsd:decimal"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="bvalue" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="value" type="xsd:boolean"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="circle" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="x" type="xsd:integer"/>
+                    <xsd:attribute name="y" type="xsd:integer"/>
+                    <xsd:attribute name="radius" type="xsd:integer"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="point" substitutionGroup="viper:null">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="viper:descriptorAttributeData">
+                    <xsd:attribute name="x" type="xsd:integer"/>
+                    <xsd:attribute name="y" type="xsd:integer"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+

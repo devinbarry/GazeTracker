@@ -1,0 +1,26 @@
+%YAML:1.0
+Face:
+   x: 747
+   y: 285
+   width: 585
+   height: 733
+Left eye:
+   x: 1165
+   y: 525
+   width: 163
+   height: 87
+Right eye:
+   x: 933
+   y: 513
+   width: 177
+   height: 86
+Nose:
+   x: 1084
+   y: 496
+   width: 163
+   height: 244
+Mouth:
+   x: 1045
+   y: 776
+   width: 184
+   height: 65

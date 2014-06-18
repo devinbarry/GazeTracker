@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viper xmlns="http://lamp.cfar.umd.edu/viper#" xmlns:data="http://lamp.cfar.umd.edu/viperdata#">
+    <config>
+        <descriptor name="Information" type="FILE">
+            <attribute dynamic="false" name="SOURCETYPE" type="http://lamp.cfar.umd.edu/viperdata#lvalue">
+                <data:lvalue-possibles>
+                    <data:lvalue-enum value="SEQUENCE"/>
+                    <data:lvalue-enum value="FRAMES"/>
+                </data:lvalue-possibles>
+            </attribute>
+            <attribute dynamic="false" name="NUMFRAMES" type="http://lamp.cfar.umd.edu/viperdata#dvalue"/>
+            <attribute dynamic="false" name="FRAMERATE" type="http://lamp.cfar.umd.edu/viperdata#fvalue"/>
+            <attribute dynamic="false" name="H-FRAME-SIZE" type="http://lamp.cfar.umd.edu/viperdata#dvalue"/>
+            <attribute dynamic="false" name="V-FRAME-SIZE" type="http://lamp.cfar.umd.edu/viperdata#dvalue"/>
+        </descriptor>
+        <descriptor name="Face" type="OBJECT">
+            <attribute dynamic="true" name="RIGHT_EYE_CENTRE" type="http://lamp.cfar.umd.edu/viperdata#point"/>
+            <attribute dynamic="true" name="LEFT_EYE_CENTRE" type="http://lamp.cfar.umd.edu/viperdata#point"/>
+            <attribute dynamic="true" name="FACE_REGION" type="http://lamp.cfar.umd.edu/viperdata#bbox"/>
+            <attribute dynamic="true" name="RIGHT_NOSTRIL_CENTRE" type="http://lamp.cfar.umd.edu/viperdata#point"/>
+            <attribute dynamic="true" name="LEFT_NOSTRIL_CENTRE" type="http://lamp.cfar.umd.edu/viperdata#point"/>
+        </descriptor>
+    </config>
+    <data>
+        <sourcefile filename="file:/C:/work-eyetracking/gazetrackinglib/media/public/unit-tests/head-tracking/test08-image-sequence-jpeg/test08-image-sequence-jpeg.info">
+            <file id="0" name="Information">
+                <attribute name="SOURCETYPE"/>
+                <attribute name="NUMFRAMES">
+                    <data:dvalue value="816"/>
+                </attribute>
+                <attribute name="FRAMERATE">
+                    <data:fvalue value="1.0"/>
+                </attribute>
+                <attribute name="H-FRAME-SIZE">
+                    <data:dvalue value="1280"/>
+                </attribute>
+                <attribute name="V-FRAME-SIZE">
+                    <data:dvalue value="1024"/>
+                </attribute>
+            </file>
+            <object framespan="1:53" id="0" name="Face">
+                <attribute name="RIGHT_EYE_CENTRE">
+                    <data:point framespan="1:1" x="496" y="545"/>
+                    <data:point framespan="2:2" x="499" y="546"/>
+                    <data:point framespan="3:3" x="501" y="546"/>
+                    <data:point framespan="4:4" x="504" y="547"/>
+                    <data:point framespan="5:5" x="506" y="546"/>
+                    <data:point framespan="6:6" x="511" y="546"/>
+                    <data:point framespan="7:7" x="517" y="547"/>
+                    <data:point framespan="8:8" x="523" y="547"/>
+                    <data:point framespan="9:9" x="531" y="548"/>
+                    <data:point framespan="10:10" x="542" y="549"/>
+                    <data:point framespan="11:11" x="554" y="550"/>
+                    <data:point framespan="12:12" x="568" y="552"/>
+                    <data:point framespan="13:13" x="585" y="553"/>
+                    <data:point framespan="14:14" x="602" y="555"/>
+                    <data:point framespan="15:15" x="618" y="556"/>
+                    <data:point framespan="16:16" x="632" y="556"/>
+                    <data:point framespan="17:17" x="645" y="557"/>
+                    <data:point framespan="18:18" x="656" y="559"/>
+                    <data:point framespan="19:19" x="667" y="560"/>
+                    <data:point framespan="20:20" x="678" y="563"/>
+                    <data:point framespan="21:21" x="690" y="563"/>
+                    <data:point framespan="22:22" x="702" y="564"/>
+                    <data:point framespan="23:23" x="713" y="565"/>
+                    <data:point framespan="24:24" x="725" y="568"/>
+                    <data:point framespan="25:25" x="736" y="568"/>
+                    <data:point framespan="26:26" x="745" y="569"/>
+                    <data:point framespan="27:27" x="755" y="571"/>
+                    <data:point framespan="28:28" x="764" y="572"/>
+                    <data:point framespan="29:29" x="773" y="575"/>
+                    <data:point framespan="30:30" x="784" y="576"/>
+                    <data:point framespan="31:31" x="793" y="578"/>
+                    <data:point framespan="32:32" x="803" y="579"/>
+                    <data:point framespan="33:33" x="812" y="580"/>
+                    <data:point framespan="34:34" x="821" y="580"/>
+                    <data:point framespan="35:35" x="828" y="580"/>
+                    <data:point framespan="36:36" x="834" y="577"/>
+                    <data:point framespan="37:37" x="836" y="575"/>
+                    <data:point framespan="38:38" x="838" y="572"/>
+                    <data:point framespan="39:39" x="839" y="569"/>
+                    <data:point framespan="40:40" x="837" y="561"/>
+                    <data:point framespan="41:41" x="835" y="554"/>
+                    <data:point framespan="42:42" x="833" y="541"/>
+                    <data:point framespan="43:43" x="831" y="529"/>
+                    <data:point framespan="44:44" x="828" y="514"/>
+                    <data:point framespan="45:45" x="822" y="498"/>
+                    <data:point framespan="46:46" x="816" y="484"/>
+                    <data:point framespan="47:47" x="807" y="466"/>
+                    <data:point framespan="48:48" x="796" y="450"/>
+                    <data:point framespan="49:49" x="785" y="433"/>
+                    <data:point framespan="50:50" x="773" y="416"/>
+                    <data:point framespan="51:51" x="756" y="402"/>
+                    <data:point framespan="52:52" x="742" y="389"/>
+                </attribute>
+                <attribute name="LEFT_EYE_CENTRE">
+                    <data:point framespan="1:1" x="714" y="556"/>
+                    <data:point framespan="2:2" x="717" y="556"/>
+                    <data:point framespan="3:3" x="720" y="557"/>
+                    <data:point framespan="4:4" x="723" y="557"/>
+                    <data:point framespan="5:5" x="726" y="556"/>
+                    <data:point framespan="6:6" x="729" y="557"/>
+                    <data:point framespan="7:7" x="735" y="558"/>
+                    <data:point framespan="8:8" x="742" y="559"/>
+                    <data:point framespan="9:9" x="750" y="560"/>
+                    <data:point framespan="10:10" x="761" y="561"/>
+                    <data:point framespan="11:11" x="772" y="563"/>
+                    <data:point framespan="12:12" x="787" y="565"/>
+                    <data:point framespan="13:13" x="804" y="568"/>
+                    <data:point framespan="14:14" x="820" y="570"/>
+                    <data:point framespan="15:15" x="836" y="572"/>
+                    <data:point framespan="16:16" x="850" y="573"/>
+                    <data:point framespan="17:17" x="863" y="574"/>
+                    <data:point framespan="18:18" x="874" y="575"/>
+                    <data:point framespan="19:19" x="886" y="575"/>
+                    <data:point framespan="20:20" x="897" y="578"/>
+                    <data:point framespan="21:21" x="909" y="578"/>
+                    <data:point framespan="22:22" x="920" y="580"/>
+                    <data:point framespan="23:23" x="932" y="581"/>
+                    <data:point framespan="24:24" x="944" y="583"/>
+                    <data:point framespan="25:25" x="954" y="583"/>
+                    <data:point framespan="26:26" x="964" y="586"/>
+                    <data:point framespan="27:27" x="973" y="587"/>
+                    <data:point framespan="28:28" x="983" y="588"/>
+                    <data:point framespan="29:29" x="991" y="591"/>
+                    <data:point framespan="30:30" x="1001" y="592"/>
+                    <data:point framespan="31:31" x="1012" y="595"/>
+                    <data:point framespan="32:32" x="1022" y="596"/>
+                    <data:point framespan="33:33" x="1031" y="599"/>
+                    <data:point framespan="34:34" x="1039" y="599"/>
+                    <data:point framespan="35:35" x="1046" y="600"/>
+                    <data:point framespan="36:36" x="1053" y="597"/>
+                    <data:point framespan="37:37" x="1056" y="595"/>
+                    <data:point framespan="38:38" x="1058" y="593"/>
+                    <data:point framespan="39:39" x="1058" y="588"/>
+                    <data:point framespan="40:40" x="1057" y="582"/>
+                    <data:point framespan="41:41" x="1055" y="572"/>
+                    <data:point framespan="42:42" x="1055" y="560"/>
+                    <data:point framespan="43:43" x="1052" y="547"/>
+                    <data:point framespan="44:44" x="1051" y="532"/>
+                    <data:point framespan="45:45" x="1045" y="517"/>
+                    <data:point framespan="46:46" x="1038" y="502"/>
+                    <data:point framespan="47:47" x="1030" y="485"/>
+                    <data:point framespan="48:48" x="1021" y="469"/>
+                    <data:point framespan="49:49" x="1009" y="452"/>
+                    <data:point framespan="50:50" x="997" y="434"/>
+                    <data:point framespan="51:51" x="983" y="418"/>
+                    <data:point framespan="52:52" x="967" y="404"/>
+                </attribute>
+                <attribute name="FACE_REGION">
+                    <data:bbox framespan="1:1" height="639" width="446"
+                        x="373" y="334"/>
+                    <data:bbox framespan="2:2" height="639" width="446"
+                        x="375" y="334"/>
+                    <data:bbox framespan="3:3" height="639" width="446"
+                        x="378" y="333"/>
+                    <data:bbox framespan="4:4" height="639" width="446"
+                        x="381" y="333"/>
+                    <data:bbox framespan="5:5" height="639" width="446"
+                        x="385" y="334"/>
+                    <data:bbox framespan="6:6" height="639" width="446"
+                        x="390" y="334"/>
+                    <data:bbox framespan="7:7" height="639" width="446"
+                        x="397" y="334"/>
+                    <data:bbox framespan="8:8" height="639" width="446"
+                        x="401" y="334"/>
+                    <data:bbox framespan="9:9" height="639" width="446"
+                        x="405" y="334"/>
+                    <data:bbox framespan="10:10" height="639"
+                        width="446" x="412" y="334"/>
+                    <data:bbox framespan="11:11" height="639"
+                        width="446" x="425" y="339"/>
+                    <data:bbox framespan="12:12" height="639"
+                        width="446" x="446" y="346"/>
+                    <data:bbox framespan="13:13" height="639"
+                        width="446" x="461" y="346"/>
+                    <data:bbox framespan="14:14" height="639"
+                        width="446" x="482" y="348"/>
+                    <data:bbox framespan="15:15" height="639"
+                        width="446" x="498" y="351"/>
+                    <data:bbox framespan="16:16" height="639"
+                        width="446" x="508" y="345"/>
+                    <data:bbox framespan="17:17" height="639"
+                        width="446" x="520" y="345"/>
+                    <data:bbox framespan="18:18" height="639"
+                        width="446" x="528" y="352"/>
+                    <data:bbox framespan="19:19" height="639"
+                        width="446" x="539" y="351"/>
+                    <data:bbox framespan="20:20" height="639"
+                        width="446" x="548" y="351"/>
+                    <data:bbox framespan="21:21" height="639"
+                        width="446" x="558" y="351"/>
+                    <data:bbox framespan="22:22" height="639"
+                        width="446" x="574" y="352"/>
+                    <data:bbox framespan="23:23" height="639"
+                        width="446" x="584" y="353"/>
+                    <data:bbox framespan="24:24" height="639"
+                        width="446" x="596" y="356"/>
+                    <data:bbox framespan="25:25" height="639"
+                        width="446" x="610" y="358"/>
+                    <data:bbox framespan="26:27" height="639"
+                        width="446" x="619" y="365"/>
+                    <data:bbox framespan="28:28" height="639"
+                        width="446" x="633" y="368"/>
+                    <data:bbox framespan="29:29" height="639"
+                        width="446" x="644" y="370"/>
+                    <data:bbox framespan="30:30" height="639"
+                        width="446" x="654" y="370"/>
+                    <data:bbox framespan="31:31" height="639"
+                        width="446" x="668" y="375"/>
+                    <data:bbox framespan="32:32" height="639"
+                        width="446" x="673" y="375"/>
+                    <data:bbox framespan="33:33" height="639"
+                        width="446" x="678" y="375"/>
+                    <data:bbox framespan="34:34" height="639"
+                        width="446" x="696" y="375"/>
+                    <data:bbox framespan="35:35" height="639"
+                        width="446" x="700" y="375"/>
+                    <data:bbox framespan="36:37" height="639"
+                        width="446" x="706" y="378"/>
+                    <data:bbox framespan="38:38" height="639"
+                        width="446" x="709" y="372"/>
+                    <data:bbox framespan="39:39" height="639"
+                        width="446" x="711" y="371"/>
+                    <data:bbox framespan="40:40" height="639"
+                        width="446" x="711" y="365"/>
+                    <data:bbox framespan="41:41" height="639"
+                        width="446" x="711" y="356"/>
+                    <data:bbox framespan="42:42" height="639"
+                        width="446" x="711" y="346"/>
+                    <data:bbox framespan="43:43" height="639"
+                        width="446" x="712" y="329"/>
+                    <data:bbox framespan="44:44" height="639"
+                        width="446" x="708" y="320"/>
+                    <data:bbox framespan="45:45" height="639"
+                        width="446" x="703" y="300"/>
+                    <data:bbox framespan="46:46" height="639"
+                        width="446" x="693" y="287"/>
+                    <data:bbox framespan="47:47" height="639"
+                        width="446" x="683" y="265"/>
+                    <data:bbox framespan="48:48" height="639"
+                        width="446" x="676" y="252"/>
+                    <data:bbox framespan="49:49" height="639"
+                        width="446" x="662" y="236"/>
+                    <data:bbox framespan="50:50" height="639"
+                        width="446" x="659" y="223"/>
+                    <data:bbox framespan="51:51" height="643"
+                        width="446" x="645" y="206"/>
+                    <data:bbox framespan="52:52" height="643"
+                        width="446" x="629" y="191"/>
+                </attribute>
+                <attribute name="RIGHT_NOSTRIL_CENTRE">
+                    <data:point framespan="1:1" x="575" y="652"/>
+                    <data:point framespan="2:2" x="577" y="652"/>
+                    <data:point framespan="3:3" x="579" y="652"/>
+                    <data:point framespan="4:4" x="583" y="651"/>
+                    <data:point framespan="5:5" x="586" y="652"/>
+                    <data:point framespan="6:6" x="589" y="652"/>
+                    <data:point framespan="7:7" x="596" y="652"/>
+                    <data:point framespan="8:8" x="603" y="653"/>
+                    <data:point framespan="9:9" x="613" y="653"/>
+                    <data:point framespan="10:10" x="624" y="656"/>
+                    <data:point framespan="11:11" x="639" y="658"/>
+                    <data:point framespan="12:12" x="655" y="661"/>
+                    <data:point framespan="13:13" x="671" y="662"/>
+                    <data:point framespan="14:14" x="687" y="664"/>
+                    <data:point framespan="15:15" x="705" y="665"/>
+                    <data:point framespan="16:16" x="719" y="665"/>
+                    <data:point framespan="17:17" x="731" y="667"/>
+                    <data:point framespan="18:18" x="743" y="668"/>
+                    <data:point framespan="19:19" x="753" y="669"/>
+                    <data:point framespan="20:20" x="766" y="671"/>
+                    <data:point framespan="21:21" x="778" y="671"/>
+                    <data:point framespan="22:22" x="790" y="674"/>
+                    <data:point framespan="23:23" x="802" y="676"/>
+                    <data:point framespan="24:24" x="814" y="678"/>
+                    <data:point framespan="25:25" x="824" y="679"/>
+                    <data:point framespan="26:26" x="836" y="681"/>
+                    <data:point framespan="27:27" x="845" y="683"/>
+                    <data:point framespan="28:28" x="854" y="685"/>
+                    <data:point framespan="29:29" x="864" y="687"/>
+                    <data:point framespan="30:30" x="874" y="688"/>
+                    <data:point framespan="31:31" x="885" y="692"/>
+                    <data:point framespan="32:32" x="893" y="692"/>
+                    <data:point framespan="33:33" x="905" y="693"/>
+                    <data:point framespan="34:34" x="913" y="693"/>
+                    <data:point framespan="35:35" x="920" y="694"/>
+                    <data:point framespan="36:36" x="924" y="694"/>
+                    <data:point framespan="37:37" x="927" y="692"/>
+                    <data:point framespan="38:38" x="928" y="690"/>
+                    <data:point framespan="39:39" x="927" y="684"/>
+                    <data:point framespan="40:40" x="925" y="677"/>
+                    <data:point framespan="41:41" x="923" y="666"/>
+                    <data:point framespan="42:42" x="921" y="654"/>
+                    <data:point framespan="43:43" x="918" y="640"/>
+                    <data:point framespan="44:44" x="914" y="626"/>
+                    <data:point framespan="45:45" x="908" y="611"/>
+                    <data:point framespan="46:46" x="900" y="596"/>
+                    <data:point framespan="47:47" x="892" y="578"/>
+                    <data:point framespan="48:48" x="881" y="561"/>
+                    <data:point framespan="49:49" x="869" y="543"/>
+                    <data:point framespan="50:50" x="856" y="526"/>
+                    <data:point framespan="51:51" x="843" y="510"/>
+                    <data:point framespan="52:52" x="828" y="497"/>
+                </attribute>
+                <attribute name="LEFT_NOSTRIL_CENTRE">
+                    <data:point framespan="1:1" x="638" y="658"/>
+                    <data:point framespan="2:2" x="640" y="657"/>
+                    <data:point framespan="3:3" x="645" y="658"/>
+                    <data:point framespan="4:4" x="648" y="658"/>
+                    <data:point framespan="5:5" x="652" y="658"/>
+                    <data:point framespan="6:6" x="655" y="658"/>
+                    <data:point framespan="7:7" x="660" y="658"/>
+                    <data:point framespan="8:8" x="668" y="659"/>
+                    <data:point framespan="9:9" x="677" y="660"/>
+                    <data:point framespan="10:10" x="689" y="663"/>
+                    <data:point framespan="11:11" x="704" y="664"/>
+                    <data:point framespan="12:12" x="719" y="667"/>
+                    <data:point framespan="13:13" x="737" y="671"/>
+                    <data:point framespan="14:14" x="754" y="673"/>
+                    <data:point framespan="15:15" x="770" y="672"/>
+                    <data:point framespan="16:16" x="784" y="673"/>
+                    <data:point framespan="17:17" x="796" y="675"/>
+                    <data:point framespan="18:18" x="806" y="676"/>
+                    <data:point framespan="19:19" x="820" y="676"/>
+                    <data:point framespan="20:20" x="833" y="679"/>
+                    <data:point framespan="21:21" x="845" y="680"/>
+                    <data:point framespan="22:22" x="856" y="681"/>
+                    <data:point framespan="23:23" x="869" y="682"/>
+                    <data:point framespan="24:24" x="881" y="684"/>
+                    <data:point framespan="25:25" x="892" y="687"/>
+                    <data:point framespan="26:26" x="903" y="688"/>
+                    <data:point framespan="27:27" x="912" y="691"/>
+                    <data:point framespan="28:28" x="920" y="692"/>
+                    <data:point framespan="29:29" x="931" y="694"/>
+                    <data:point framespan="30:30" x="941" y="696"/>
+                    <data:point framespan="31:31" x="951" y="700"/>
+                    <data:point framespan="32:32" x="961" y="700"/>
+                    <data:point framespan="33:33" x="971" y="702"/>
+                    <data:point framespan="34:34" x="979" y="703"/>
+                    <data:point framespan="35:35" x="987" y="704"/>
+                    <data:point framespan="36:36" x="989" y="702"/>
+                    <data:point framespan="37:37" x="992" y="700"/>
+                    <data:point framespan="38:38" x="993" y="698"/>
+                    <data:point framespan="39:39" x="994" y="693"/>
+                    <data:point framespan="40:40" x="993" y="686"/>
+                    <data:point framespan="41:41" x="991" y="675"/>
+                    <data:point framespan="42:42" x="989" y="662"/>
+                    <data:point framespan="43:43" x="986" y="648"/>
+                    <data:point framespan="44:44" x="982" y="635"/>
+                    <data:point framespan="45:45" x="977" y="620"/>
+                    <data:point framespan="46:46" x="969" y="603"/>
+                    <data:point framespan="47:47" x="960" y="586"/>
+                    <data:point framespan="48:48" x="950" y="568"/>
+                    <data:point framespan="49:49" x="940" y="550"/>
+                    <data:point framespan="50:50" x="927" y="534"/>
+                    <data:point framespan="51:51" x="913" y="518"/>
+                    <data:point framespan="52:52" x="897" y="504"/>
+                </attribute>
+            </object>
+        </sourcefile>
+    </data>
+</viper>
