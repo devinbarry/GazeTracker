@@ -7,8 +7,7 @@ namespace GTCommons
 {
     public class GTCommands : Window
     {
-        #region Variables 
-
+        // Variables region
         private static GTCommands instance;
 
         private readonly AutotuneCommands autotuneCommands;
@@ -16,8 +15,6 @@ namespace GTCommons
         private readonly CameraCommands cameraCommands;
         private readonly SettingsCommands settingsCommands;
         private readonly TrackerViewerCommands videoViewerCommands;
-
-        #endregion
 
         #region Events
 
