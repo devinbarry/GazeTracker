@@ -166,11 +166,7 @@ namespace GazeTrackerUI
         // Start logging (if enabled)
         Tracker.Instance.LogData.IsEnabled = GTSettings.Settings.Instance.FileSettings.LoggingEnabled;
 
-        BtnStartStop.Label = "Stop";
-
-        //if(Settings.Instance.Processing.EyeMouseEnabled)
-        //    BtnStartStop.ActivationMethod = "Dwell";
-
+        //Start/Stop button used to change to stop here
 
         isRunning = true;
       }
@@ -207,10 +203,7 @@ namespace GazeTrackerUI
         if (Tracker.Instance.LogData.IsEnabled)
           Tracker.Instance.LogData.IsEnabled = false; // Will stop and close filestream
 
-        BtnStartStop.Label = "Start";
-
-        //if(Settings.Instance.Processing.EyeMouseEnabled)
-        //    BtnStartStop.ActivationMethod = "Mouse";
+        //Start/Stop button used to change to start here
 
         isRunning = false;
       }
@@ -417,8 +410,6 @@ namespace GazeTrackerUI
     {
       CalibrationWindow.Instance.Close();
       WindowState = WindowState.Normal;
-      BtnStartStop.IsEnabled = true;
-      BtnCalibrate.Label = "Recalibrate";
       this.videoImageControl.VideoOverlayTopMost = true;
 
       Tracker.Instance.CalibrationAccepted();
